@@ -1,4 +1,17 @@
+console.log("up and running");
 $(document).ready(function() {
+    
+    function nameAndPhotos(pup){
+    return (
+        `<div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="${pup.photo}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">${pup.name}</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>`)
+}
     var allTheDoggos = [
         {
             name: 'Petunia', 
@@ -53,6 +66,63 @@ $(document).ready(function() {
     var seniorDoggos = []; // etc
 
     var californiaDoggos = []; // etc
+
+
+
+ allPuppies = allTheDoggos.filter(function(dogObj){
+        if (dogObj.age < 2){
+            return true;
+        }
+    })
+allPuppies.forEach(function(pup){
+    var info= nameAndPhotos(pup);
+    $('#puppies').append(info); 
+   
+})
+
+doggosWithPNames = allTheDoggos.filter(function(dogObj){
+    if (dogObj.name[0]==='P'){
+        return true;
+    }
+})
+
+doggosWithPNames.forEach(function(pup){
+    var info= nameAndPhotos(pup);
+    $('#p-name').append(info); 
+})
+
+doggosInSf = allTheDoggos.filter(function(dogObj){
+    if (dogObj.city === 'SF'){
+        return true;
+    }
+})
+
+doggosInSf.forEach(function(pup){
+    var info= nameAndPhotos(pup);
+    $('#sf').append(info); 
+})
+
+seniorDoggos = allTheDoggos.filter(function(dogObj){
+    if (dogObj.age > 7){
+        return true;
+    }
+})
+seniorDoggos.forEach(function(pup){
+     var info= nameAndPhotos(pup);
+     $('#senior').append(info);
+})
+
+californiaDoggos = allTheDoggos.filter(function(dogObj){
+    if (dogObj.state ==='CA'){
+        return true;
+    }
+})
+californiaDoggos.forEach(function(pup){
+    var info = nameAndPhotos(pup);
+    $('#ca').append(info)
+})
+
+
 
     // 1. Figure out where each array of doggos should be displayed in the index.html
     // 2. Iterate through each array and append the doggo's name and photo to the HTML

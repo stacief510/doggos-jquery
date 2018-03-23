@@ -1,0 +1,14 @@
+
+#puppies, #seniors, #sf, #ca, #p-name{
+	display:flex;
+}
+img{
+max-width: 600px;
+height: 200px;
+}
+h1{
+	color: purple;
+}
+h2{
+	font-size: 12px;
+}
